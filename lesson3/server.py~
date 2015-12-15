@@ -1,0 +1,16 @@
+import socket
+s=socket.socket(socket.AF_INFI,socket.SOCK_STREAM)
+socket.bind(('localhost',8001))
+socket.listen(5)
+while True:
+	connection,adress = sock.accept()
+	try:
+		connection.settimeout(5)
+		buf = connection.recv(1024)
+		if buf == '1':
+			connection.send('welcome to server!')
+		else:
+			connection.send('go out')
+except socket.timeout:
+	print 'time out'
+	connection.close()
