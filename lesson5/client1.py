@@ -46,22 +46,16 @@ class MyClient:
                                 file_part.close()
                             else:
                                 file_part = open(self.defaultPath + '/' + filename + '.part','a')
-                                print len(receiveData[filename])
                                 for i in range(0,len(receiveData[filename]),1):
-                                    print i
                                     file_number = open(self.defaultPath + '/' + filename + '.number','w')
                                     dict2 = receiveData[filename]
                                     file_part.write(dict2[str(i)])
-                                    print i
                                     file_number.write(str(i))
-                                    print i
                                     file_number.close()
-                                    print i
                                 file_part.close()
                         if os.path.exists(self.defaultPath + '/' + filename + '.number'):
-                            print'111'
                             os.remove(self.defaultPath + '/' + filename + '.number')
-                        if os.path.exists(self.defaultPath + '/' + filename + '.part',self.defaultPath + '/' + filename):
+                        if os.path.exists(self.defaultPath + '/' + filename + '.part'):
                             os.rename(self.defaultPath + '/' + filename + '.part',self.defaultPath + '/' + filename)
                     print 'download finished'
             except:
