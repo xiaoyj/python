@@ -72,7 +72,7 @@ class MyServer:
 	def readFiles(self,path):
 		fileTxt = {}
 		f = open(path,'r')
-		length = len(f.read())
+		length = len(f.re               ad())
 		f.close()
 		f = open(path,'r')
 		for i in range(0,length,100000):
